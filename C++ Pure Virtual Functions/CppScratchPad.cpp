@@ -9,6 +9,16 @@ using namespace std;
 // --------------------- C++ Pure Virtual Functions ----------------------------
 //ref link:https://www.youtube.com/watch?v=1_H5u-Iyr3o&list=PLRwVmtr-pp05LyV3bYHwrFacNSNjbUqS6&index=23&t=1s
 
+struct Base
+{
+	int intMember;
+	virtual void foo() {}
+};
+
+int main()
+{
+	Base base;
+}
 
 
 
