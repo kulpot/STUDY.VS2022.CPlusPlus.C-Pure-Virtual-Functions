@@ -14,13 +14,19 @@ using namespace std;
 struct Base
 {
 	int intMember;
-	virtual void foo();
+	//virtual void foo();
 	virtual void foo() = 0;		// pure virtual function line syntax
+};
+
+struct Derived : public Base
+{
+
 };
 
 int main()
 {
 	Base base;
+	base.foo();
 }
 
 
