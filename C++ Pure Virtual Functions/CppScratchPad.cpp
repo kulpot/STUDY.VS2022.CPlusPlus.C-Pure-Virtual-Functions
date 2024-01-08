@@ -20,13 +20,15 @@ struct Base
 
 struct Derived : public Base
 {
-
+	void foo() {}
 };
 
 int main()
 {
-	Base base;
-	base.foo();
+	Derived derived;
+	derived.foo()
+	//Base base;		
+	//base.foo();
 }
 
 
