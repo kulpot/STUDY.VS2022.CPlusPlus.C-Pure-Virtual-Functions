@@ -6,70 +6,101 @@ using std::endl;
 //using std::string;
 using namespace std;
 
+// --------------------- C++ Pure Virtual Functions ----------------------------
+//ref link:https://www.youtube.com/watch?v=1_H5u-Iyr3o&list=PLRwVmtr-pp05LyV3bYHwrFacNSNjbUqS6&index=23&t=1s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --------------------------- C++ vPointers and vTables ----------------------------
 //ref link:https://www.youtube.com/watch?v=Eaz0P_gJ9FE&list=PLRwVmtr-pp05LyV3bYHwrFacNSNjbUqS6&index=19
 
-//"Static" means at compile time rather than at run time. means One copy of vTable
-//"Dynamic" means at runtime time
-// every virtual needs a vtable, every type theres different vtable
-// vTable - is essentially a switch statement
-// 
-// KeyPoints
-// 1. One vTable per type as long as its virtual
-// 2. Only the virtual functions are put in the vTable
-// 3. One vTable per type thus all the instances of the type shares the vTable
-// 4. vTable is only use in the case of polymorphism/pointer
-//----------------------------------------------
-
-//struct Animal { void makeSound() { cout << "Animallllll" << endl; } };	// not virtual - not for polymorphism
-struct Animal { 
-	virtual void makeSound() { cout << "Animallllll" << endl; } 	//  virtual - for polymorphism
-	void sleep() {}
-	virtual void walk() { cout << "Animal walk()" << endl; }
-};
-
-// overwrite makeSound and Pigs walk
-struct Cow : public Animal { void makeSound() { cout << "Moooooo" << endl; } };
-struct Pig : public Animal { 
-	void makeSound() { cout << "Oink" << endl; }	// overwrite
-	void walk() { cout << "Pig walking" << endl; }		// overwrite 
-};
-struct Donkey : public Animal { void makeSound() { cout << "Hee Haw" << endl; } };
-
-void main()
-{
-	//Animal* animal;		// Compiler Warning (level 4) C4703
-	srand(time(0));			//	for RNG
-	Animal* animal(NULL);
-
-	switch (rand() % 3)
-	{
-	case 0:
-		animal = new Cow;
-		break;
-	case 1:
-		animal = new Pig;
-		break;
-	case 2:
-		animal = new Donkey;
-		break;
-	}
-	animal->makeSound();
-	animal->walk();
-
-	//// ----- none pointer only object --------
-	//Donkey d;
-	//d.walk();
-	//// ----------------------------------------
-	delete animal;
-
-	//Cow betsy;
-	//betsy.makeSound();		// static analysis also called compiletime
-	//Pig wilbur;
-	//wilbur.makeSound();
-	//Donkey donkey;
-	//donkey.makeSound();
-}
+////"Static" means at compile time rather than at run time. means One copy of vTable
+////"Dynamic" means at runtime time
+//// every virtual needs a vtable, every type theres different vtable
+//// vTable - is essentially a switch statement
+//// 
+//// KeyPoints
+//// 1. One vTable per type as long as its virtual
+//// 2. Only the virtual functions are put in the vTable
+//// 3. One vTable per type thus all the instances of the type shares the vTable
+//// 4. vTable is only use in the case of polymorphism/pointer
+////----------------------------------------------
+//
+////struct Animal { void makeSound() { cout << "Animallllll" << endl; } };	// not virtual - not for polymorphism
+//struct Animal { 
+//	virtual void makeSound() { cout << "Animallllll" << endl; } 	//  virtual - for polymorphism
+//	void sleep() {}
+//	virtual void walk() { cout << "Animal walk()" << endl; }
+//};
+//
+//// overwrite makeSound and Pigs walk
+//struct Cow : public Animal { void makeSound() { cout << "Moooooo" << endl; } };
+//struct Pig : public Animal { 
+//	void makeSound() { cout << "Oink" << endl; }	// overwrite
+//	void walk() { cout << "Pig walking" << endl; }		// overwrite 
+//};
+//struct Donkey : public Animal { void makeSound() { cout << "Hee Haw" << endl; } };
+//
+//void main()
+//{
+//	//Animal* animal;		// Compiler Warning (level 4) C4703
+//	srand(time(0));			//	for RNG
+//	Animal* animal(NULL);
+//
+//	switch (rand() % 3)
+//	{
+//	case 0:
+//		animal = new Cow;
+//		break;
+//	case 1:
+//		animal = new Pig;
+//		break;
+//	case 2:
+//		animal = new Donkey;
+//		break;
+//	}
+//	animal->makeSound();
+//	animal->walk();
+//
+//	//// ----- none pointer only object --------
+//	//Donkey d;
+//	//d.walk();
+//	//// ----------------------------------------
+//	delete animal;
+//
+//	//Cow betsy;
+//	//betsy.makeSound();		// static analysis also called compiletime
+//	//Pig wilbur;
+//	//wilbur.makeSound();
+//	//Donkey donkey;
+//	//donkey.makeSound();
+//}
 
 
 
