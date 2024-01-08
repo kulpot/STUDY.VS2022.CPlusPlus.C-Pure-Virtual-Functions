@@ -9,10 +9,13 @@ using namespace std;
 // --------------------- C++ Pure Virtual Functions ----------------------------
 //ref link:https://www.youtube.com/watch?v=1_H5u-Iyr3o&list=PLRwVmtr-pp05LyV3bYHwrFacNSNjbUqS6&index=23&t=1s
 
+// Virtual Functions - abstract functions - the details contain is arbitrary
+
 struct Base
 {
 	int intMember;
-	virtual void foo() {}
+	virtual void foo();
+	virtual void foo() = 0;		// pure virtual function line syntax
 };
 
 int main()
