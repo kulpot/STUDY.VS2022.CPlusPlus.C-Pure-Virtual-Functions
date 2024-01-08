@@ -9,24 +9,34 @@ using namespace std;
 // --------------------- C++ Pure Virtual Functions ----------------------------
 //ref link:https://www.youtube.com/watch?v=1_H5u-Iyr3o&list=PLRwVmtr-pp05LyV3bYHwrFacNSNjbUqS6&index=23&t=1s
 
-// Virtual Functions - abstract functions - the details contain is arbitrary
+//So if it isn't saving me lines of code why bother with virtual functions and abstract classes? It's not about saving syntax! It's about abstraction(hence, abstract class :).It's about object design, separation of concerns, old code calling new code without having to change the old code, and so many more. It's about fundamental Object Oriented design techniques. Design patterns are the frosting on top, etc.
 
+// Virtual Functions - abstract functions - the details contain is arbitrary
+//------------------------
+
+// Interface in C++	has no data members all functions are virtual
 struct Base
 {
-	int intMember;
-	//virtual void foo();
-	virtual void foo() = 0;		// pure virtual function line syntax
+	virtual void foo() = 0;
+	virtual void fooer() = 0;
+	virtual void foop() = 0;
 };
+//struct Base
+//{
+//	int intMember;
+//	//virtual void foo();
+//	virtual void foo() = 0;		// abstract function pure virtual function line syntax
+//};
 
 struct Derived : public Base
 {
-	void foo() {}
+	//void foo() {}
 };
 
 int main()
 {
-	Derived derived;
-	derived.foo()
+	//Derived derived;	
+	//derived.foo();
 	//Base base;		
 	//base.foo();
 }
